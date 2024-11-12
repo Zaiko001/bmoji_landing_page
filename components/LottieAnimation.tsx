@@ -1,5 +1,7 @@
 import React from 'react';
-import Lottie from 'react-lottie';
+import dynamic from 'next/dynamic';
+
+const Lottie = dynamic(() => import('react-lottie'), { ssr: false });
 
 interface LottieAnimationProps {
   animationData: object;
