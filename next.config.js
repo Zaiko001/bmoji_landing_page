@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/bmoji_landing_page/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/bmoji_landing_page' : '',
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
