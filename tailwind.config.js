@@ -1,7 +1,4 @@
-import {nextui} from '@nextui-org/theme'
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     './layouts/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -16,6 +13,6 @@ module.exports = {
       },
     },
   },
-  darkMode: "class",
+  darkMode: 'class',
   plugins: [nextui()],
-}
+};
