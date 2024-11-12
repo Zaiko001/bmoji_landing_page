@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "next dev --turbo --hostname 0.0.0.0 -p 10001",
 		"build": "next build",
-		"start": "next start",
+		"start": "next start -p 10001",
 		"lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
 		"deploy": "npm run build && powershell -Command \"New-Item -Path ./out/.nojekyll -ItemType File\" && npx gh-pages -d out"
 	},
