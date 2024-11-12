@@ -10,7 +10,7 @@
 	  "deploy": "npm run build && powershell -Command \"New-Item -Path ./out/.nojekyll -ItemType File\" && npx gh-pages -d out"
 	},
 	"dependencies": {
-	  "@next/swc-win32-x64-msvc": "^15.0.3",
+	  "@next/swc-linux-x64-gnu": "^15.0.3",
 	  "@nextui-org/badge": "^2.0.32",
 	  "@nextui-org/button": "2.0.38",
 	  "@nextui-org/chip": "^2.0.33",
@@ -34,6 +34,7 @@
 	  "next-themes": "^0.2.1",
 	  "react": "18.3.1",
 	  "react-dom": "18.3.1",
+	  "react-lottie": "^1.2.3",
 	  "gh-pages": "^3.2.3"
 	},
 	"devDependencies": {
