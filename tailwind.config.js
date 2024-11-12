@@ -1,4 +1,8 @@
-export default {
+// Importa nextui al principio del archivo
+const { nextui } = require('@nextui-org/theme');
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
     './layouts/**/*.{js,ts,jsx,tsx,mdx}',
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
