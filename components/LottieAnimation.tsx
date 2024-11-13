@@ -11,10 +11,12 @@ interface LottieAnimationProps {
 
 const LottieAnimation: React.FC<LottieAnimationProps> = ({
   animationData,
-  height = 500,
-  width = 500,
+  height,
+  width,
 }) => {
   const defaultOptions = {
+    height: 500,
+    width: 500,
     loop: true,
     autoplay: true,
     animationData: animationData,

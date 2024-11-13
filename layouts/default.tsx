@@ -6,6 +6,10 @@ import { Navbar } from "@/components/navbar";
 
 import { HeartFilledIcon } from "@/components/icons";
 
+import { siteConfig } from "../config/site";
+
+const footerMessage = "<> by @Z41K0 with";
+
 export default function DefaultLayout({
   children,
 }: {
@@ -22,10 +26,10 @@ export default function DefaultLayout({
         <Link
           isExternal
           className="flex items-center gap-1 text-current"
-          href="https://t.me/bmoji_token"
-          title="nextui.org homepage"
+          href= {siteConfig.links.telegram_dev}
+          title="bmoji.org homepage"
         >
-          <span className="text-default-600">Made with</span>
+          <span className="text-default-500">{footerMessage}</span>
           <p className="text-primary"><HeartFilledIcon className="text-danger"></HeartFilledIcon></p>
         </Link>
       </footer>

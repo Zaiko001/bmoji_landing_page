@@ -20,8 +20,8 @@ const FormattedSnippet: React.FC<FormattedSnippetProps> = ({ content }) => {
     <Snippet 
       hideSymbol 
       variant="bordered" 
-      tooltipProps={{ delay: 0, closeDelay: 0, placement: 'bottom', offset: 15}}
-      codeString={content} // Usamos codeString para copiar el texto completo
+      tooltipProps={{ delay: 0, closeDelay: 0, placement: 'top', offset: 15}}
+      codeString={content} 
     >
       <span>{displayText}</span>
     </Snippet>
