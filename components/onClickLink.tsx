@@ -12,7 +12,14 @@ const OnClickLink: React.FC<OnClickLinkProps> = ({ url, children }) => {
 
   return (
     <span 
-      onClick={handleClick} 
+      role="link"
+      tabIndex={0}
+      onClick={handleClick}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleClick();
+        }
+      }}
       className="border-b-2 border-blue-500 text-blue-500 hover:cursor-pointer"
     >
       {children}
