@@ -92,7 +92,7 @@ const ChangelogPage: React.FC = () => {
                   )}
                 </ModalContent>
               </Modal>
-              <div className="center m-3 p-10 bg-default-100 rounded-lg max-w-[400]">
+              <div className="center m-3 pt-10 pb-10 pl-3 pr-3 bg-default-100 rounded-lg">
                 <SelectedComponent/>
               </div>
             </div>

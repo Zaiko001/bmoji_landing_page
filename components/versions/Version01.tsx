@@ -5,8 +5,9 @@ import { Code } from '@nextui-org/code';
 
 const Version01: React.FC = () => (
   <div>
-    <div className='mb-3'>
-        <Code size='sm'>Website launch. Beautiful, modern and colorful.</Code>
+    <div className='mb-3 text-center'>
+        <Code size='sm'>Website launch.</Code>
+        <Code size='sm'>Beautiful, modern and colorful.</Code>
     </div>
     <div className="items-center justify-center">
         <div>

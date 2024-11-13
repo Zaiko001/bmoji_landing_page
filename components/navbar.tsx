@@ -54,7 +54,7 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+      <NavbarContent className="sm:hidden basis-1 pl-4 mr-5" justify="end">
       <TwitterIcon className="text-default-500" />
         <ThemeSwitch />
       </NavbarContent>
