@@ -11,5 +11,6 @@ export const siteConfig = {
   ],
   links: {
     documentation: "https://usdbmoji-team.gitbook.io/bmoji-docs/",
+    miniapp: "https://t.me/bmojihub_bot"
   },
 };

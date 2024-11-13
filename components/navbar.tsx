@@ -5,16 +5,13 @@ import {
   NavbarItem,
 } from "@nextui-org/navbar";
 import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
 import { Link } from "@nextui-org/link";
-import { Input } from "@nextui-org/input";
 import {Tooltip} from "@nextui-org/tooltip";
+import { siteConfig } from "../config/site";
 import NextLink from "next/link";
-import {Badge} from "@nextui-org/badge";
 import { ThemeSwitch } from "@/components/theme-switch";
 import {
   TwitterIcon,
-  SearchIcon,
 } from "@/components/icons";
 
 export const Navbar = () => {
@@ -30,15 +27,13 @@ export const Navbar = () => {
           </NextLink>
         </NavbarBrand>
         <div className="hidden lg:flex gap-4 justify-start ml-2">
-        <NavbarItem>
-          <Link
-            isExternal
-            href="https://t.me/bmoji_token"
-            className="text-white-500"
-          >
-            News
-          </Link>
-        </NavbarItem>
+        {siteConfig.navItems.map((item) => (
+            <NavbarItem key={item.label}>
+              <NextLink href={item.href}>
+              {item.label}
+              </NextLink>
+            </NavbarItem>
+          ))}
         </div>
       </NavbarContent>
 

@@ -3,16 +3,26 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import {Divider} from "@nextui-org/divider";
 import {Chip} from "@nextui-org/chip";
 import {CheckIcon} from "../components/icons";
+import OnClickLink from "../components/onClickLink"
 import FormattedSnippet from "@/components/FormattedSnippet";
 import {Tooltip} from "@nextui-org/tooltip";
 import {Progress} from "@nextui-org/progress";
+import {Popover, PopoverTrigger, PopoverContent} from "@nextui-org/popover";
+import { siteConfig } from "../config/site";
+import {Image} from "@nextui-org/image";
 
 import { title, subtitle } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
+
+//Animation
 import LottieAnimation from "@/components/LottieAnimation";
 import diamond from "../animations/diamond.json";
+import green from "../animations/common_animation.json"
+import purple from "../animations/rare_animation.json"
+import yellow from "../animations/unique_animation.json"
 
 export default function IndexPage() {
+
   return (
     <DefaultLayout>
       <section className="flex flex-col md:flex-row gap-4 py-8 md:py-8">
@@ -24,11 +34,33 @@ export default function IndexPage() {
             <div className={`${title({ color: "blue" })} block text-center`}>BMOJI World,&nbsp;</div>
             <br/>
             <span className={title()}>unlock the power of emojis</span>
-            <div className={subtitle({ class: "mt-4" })}>
-              and collect <span className="text-green-500">common</span>, 
-              <span className="text-purple-500"> rare</span>, 
-              and <span className="text-yellow-500">unique avatars </span> 
-              playing mini-games directly on <span className="text-blue-500">Telegram</span>.
+            <div className={subtitle({ class: "mt-4" })}>and collect &nbsp;
+             <Popover placement="top" color="success"> 
+              <PopoverTrigger>
+                <span className="border-b-2 border-green-500 text-green-500 hover:cursor-pointer">common</span>
+              </PopoverTrigger>
+              <PopoverContent>
+              <LottieAnimation animationData={green} width={50} height={50}></LottieAnimation>
+              </PopoverContent>
+              </Popover>, &nbsp;
+              <Popover placement="top" color="secondary">
+                <PopoverTrigger>
+              <span className="border-b-2 border-purple-500 text-purple-500 hover:cursor-pointer">rare</span>
+              </PopoverTrigger>
+              <PopoverContent>
+                <LottieAnimation animationData={purple} width={50} height={50}></LottieAnimation>
+              </PopoverContent>
+              </Popover>, 
+              and &nbsp;
+              <Popover placement="top" color="warning">
+              <PopoverTrigger>
+              <span className="border-b-2 border-yellow-500 text-yellow-500 hover:cursor-pointer">unique avatars</span> 
+              </PopoverTrigger>
+              <PopoverContent>
+                <LottieAnimation animationData={yellow} width={50} height={50}></LottieAnimation>
+              </PopoverContent>
+              </Popover>
+              &nbsp; playing mini-games directly on <OnClickLink url={siteConfig.links.miniapp}>Telegram</OnClickLink>.
             </div>
           </div>
           <Divider className="my-1" />
@@ -43,11 +75,13 @@ export default function IndexPage() {
               variant="bordered"
               endContent={<CheckIcon/>}
               >Decentralized</Chip>
+              <div className="hidden sm:inline-block md:inline-block">
               <Chip 
               color="success"
               variant="bordered"
               endContent={<CheckIcon/>}
               >Transparency</Chip>
+              </div>
           </div>
           <Divider className="my-1" />
           <div className="flex gap-3 mt-4">
@@ -62,7 +96,8 @@ export default function IndexPage() {
                 radius: "full",
               })} min-h-[47.5px]`}
             >
-            Documentation
+            <span className="hidden md:inline">Documentation</span> 
+            <span className="md:hidden">Docs</span>
             </Link>
             </Tooltip>
             <FormattedSnippet content="EQAtSsa90p8_Zm0Lv6rgioI0vHOViIWCaHYe8buKwZEZIQog" />
@@ -76,7 +111,9 @@ export default function IndexPage() {
           className="mt-5"/>
         </div>
         <div className="md:w-1/2 flex justify-center md:justify-end">
-          <LottieAnimation animationData={diamond}></LottieAnimation>
+          <div className="hidden sm:hidden md:flex justify-center">
+            <LottieAnimation animationData={diamond}></LottieAnimation>
+          </div>
         </div>
       </section>
     </DefaultLayout>
