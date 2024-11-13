@@ -5,8 +5,11 @@ import { Code } from '@nextui-org/code';
 
 const Version01: React.FC = () => (
   <div>
-    <div className='mb-3 text-center'>
+    <div className='mb-3 p-3 gap-3 text-center'>
+        <div className='mb-3'>
         <Code size='sm'>Website launch.</Code>
+        <br/>
+        </div>
         <Code size='sm'>Beautiful, modern and colorful.</Code>
     </div>
     <div className="items-center justify-center">
