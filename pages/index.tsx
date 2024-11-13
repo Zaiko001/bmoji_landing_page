@@ -106,7 +106,7 @@ export default function IndexPage() {
           label="Dedust.io progress..." 
           color="success" 
           aria-label="Dedust.io progress" 
-          value={65}
+          value={78}
           showValueLabel={true} 
           className="mt-5"/>
         </div>
