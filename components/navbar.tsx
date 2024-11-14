@@ -18,7 +18,7 @@ export const Navbar = () => {
 
   return (
     <NextUINavbar maxWidth="xl" position="sticky">
-      <NavbarContent className="basis-1/5 ml-8 mr-8" justify="start">
+      <NavbarContent className="basis-1/5" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
           <Button radius="full" className="bg-gradient-to-tr from-red-500 to-yellow-500 text-white shadow-lg">

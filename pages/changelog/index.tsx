@@ -1,16 +1,14 @@
-import { subtitle, title } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
-import { ScrollShadow } from "@nextui-org/scroll-shadow";
 import { Tabs, Tab } from "@nextui-org/tabs";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { Select, SelectSection, SelectItem } from "@nextui-org/select";
+import { Select, SelectItem } from "@nextui-org/select";
 import React, { useState } from 'react';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/modal";
 import { Button } from "@nextui-org/button";
 
-
 // Versions
 import Version01 from "@/components/versions/Version01";
+import Version02 from "@/components/versions/Version02";
+import VersionInstructions from "@/components/versions/MoreInfo";
 
 type VersionChanges = {
   [key: string]: React.FC;
@@ -18,10 +16,11 @@ type VersionChanges = {
 
 const versionChanges: VersionChanges = {
   "Version 0.1": Version01,
+  "Version 0.2": Version02,
 };
 
 const ChangelogPage: React.FC = () => {
-  const [selectedVersion, setSelectedVersion] = useState<string>("Version 0.1");
+  const [selectedVersion, setSelectedVersion] = useState<string>("Version 0.2");
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const handleVersionChange = (version: string) => {
@@ -55,7 +54,7 @@ const ChangelogPage: React.FC = () => {
                     </SelectItem>
                   ))}
                 </Select>
-                <Button onPress={onOpen} color="secondary" className="min-h-[48px] m-3">
+                <Button onPress={onOpen} color="secondary" className="min-h-[48px] w-[140px] m-3">
                   <span className="w-fit">More Info</span>
                 </Button>
               </div>
@@ -63,22 +62,9 @@ const ChangelogPage: React.FC = () => {
                 <ModalContent>
                   {(onClose) => (
                     <>
-                      <ModalHeader className="flex flex-col gap-1">How to update the changelog?</ModalHeader>
+                      <ModalHeader className="flex flex-col gap-1">Info</ModalHeader>
                       <ModalBody>
-                        <p>● Go to <span className="text-orange-500">components/versions</span>
-                          <br/>
-                          <br/>
-                          ● Create your version here. For example: <span className="text-blue-500">Version02.tsx</span>
-                          <br/>
-                          <br/>
-                          ● Go to <span className="text-orange-500">pages/changelog/index.tsx</span>
-                          <br/>
-                          <br/>   
-                          ● Import your version, add your version to <span className="text-purple-500">versionChanges</span>
-                          <br/>
-                          <br/>
-                          ● Edit <span className="text-blue-500">Version02.tsx</span> and watch the magic!
-                        </p>
+                        <VersionInstructions version={selectedVersion} />
                       </ModalBody>
                       <ModalFooter>
                         <Button color="primary" onPress={onClose}>
@@ -93,7 +79,7 @@ const ChangelogPage: React.FC = () => {
                 </ModalContent>
               </Modal>
               <div className="center m-3 pt-10 pb-10 pl-3 pr-3 bg-default-100 rounded-lg sm:max-w-[350]">
-                <SelectedComponent/>
+                <SelectedComponent />
               </div>
             </div>
           </Tab>

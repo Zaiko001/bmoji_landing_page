@@ -7,10 +7,8 @@ const Version01: React.FC = () => (
   <div>
     <div className='sm:inline md:hidden mb-3 p-3 gap-3 text-center'>
         <div className='mb-3'>
-        <Code size='sm'>Website launch.</Code>
-        <br/>
+        <Code size='sm'>Website launch. <br/>Beautiful, modern and colorful.</Code>
         </div>
-        <Code size='sm'>Beautiful, modern and colorful.</Code>
     </div>
     <div className='hidden md:inline mb-3 p-3 gap-3 text-center'>
         <div className='mb-3'>

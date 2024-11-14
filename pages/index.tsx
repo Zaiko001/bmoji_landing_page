@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react';
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { Divider } from "@nextui-org/divider";
 import { Chip } from "@nextui-org/chip";
-import { CheckIcon } from "../components/icons";
-import OnClickLink from "../components/onClickLink";
+import { CheckIcon } from "@/components/icons";
+import OnClickLink from "@/components/onClickLink";
 import FormattedSnippet from "@/components/FormattedSnippet";
 import { Tooltip } from "@nextui-org/tooltip";
 import { Progress } from "@nextui-org/progress";
@@ -11,21 +12,27 @@ import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
 import { siteConfig } from "../config/site";
 import { Image } from "@nextui-org/image";
 import { Button } from "@nextui-org/button";
+import DataFetcher from '@/components/DataFetcher';
 
 import { title, subtitle } from "@/components/primitives";
 import DefaultLayout from "@/layouts/default";
 import { ScrollShadow } from "@nextui-org/scroll-shadow";
-
-// Animation
 import LottieAnimation from "@/components/LottieAnimation";
-import diamond from "../animations/diamond.json";
-import green from "../animations/common_animation.json";
-import purple from "../animations/rare_animation.json";
-import yellow from "../animations/unique_animation.json";
+import diamond from "@/animations/diamond_animation.json";
+import green from "@/animations/common_animation.json";
+import purple from "@/animations/rare_animation.json";
+import yellow from "@/animations/unique_animation.json";
+import { Code } from '@nextui-org/code';
 
 export default function IndexPage() {
+  const [balance, setBalance] = useState<string | null>(null); 
+  const [holders, setHolders] = useState<number | null>(null);
+  
+
   return (
       <DefaultLayout>
+        <DataFetcher type="balance" onData={(data) => setBalance(data as string)} /> 
+        <DataFetcher type="holders" onData={(data) => setHolders(data as number)} />
         <ScrollShadow hideScrollBar>
         <section className="flex flex-col md:flex-row gap-4">
           <div className="md:w-1/2 flex flex-col gap-4 p-8">
@@ -46,7 +53,7 @@ export default function IndexPage() {
                       tabIndex={0}
                       onKeyDown={(e) => {
                         if (e.key === "Enter") {
-                          // Trigger Popover
+                          
                         }
                       }}
                       className="border-b-2 border-green-500 text-green-500 hover:cursor-pointer"
@@ -70,7 +77,7 @@ export default function IndexPage() {
                       tabIndex={0}
                       onKeyDown={(e) => {
                         if (e.key === "Enter") {
-                          // Trigger Popover
+                          
                         }
                       }}
                       className="border-b-2 border-purple-500 text-purple-500 hover:cursor-pointer"
@@ -94,7 +101,7 @@ export default function IndexPage() {
                       tabIndex={0}
                       onKeyDown={(e) => {
                         if (e.key === "Enter") {
-                          // Trigger Popover
+                          
                         }
                       }}
                       className="border-b-2 border-yellow-500 text-yellow-500 hover:cursor-pointer"
@@ -172,10 +179,11 @@ export default function IndexPage() {
               label="Dedust.io progress..."
               color="success"
               aria-label="Dedust.io progress"
-              value={78}
+              value={balance}
               showValueLabel={true}
               className="mt-5"
             />
+            <Code size='md' className='mt-5 w-fit' >About <span className='text-purple-500'>{holders} holders</span> trust <span className='text-blue-500'>$BMOJI</span></Code>
           </div>
           <div className="md:w-1/2 flex justify-center md:justify-end">
             <div className="hidden sm:hidden md:hidden lg:flex justify-center">
@@ -215,3 +223,4 @@ export default function IndexPage() {
       </DefaultLayout>
   );
 }
+
