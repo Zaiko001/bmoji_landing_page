@@ -25,13 +25,13 @@ import yellow from "@/animations/unique_animation.json";
 import { Code } from '@nextui-org/code';
 
 export default function IndexPage() {
-  const [balance, setBalance] = useState<string | null>(null); 
+  const [balance, setBalance] = useState<number | undefined>(undefined); 
   const [holders, setHolders] = useState<number | null>(null);
   
 
   return (
       <DefaultLayout>
-        <DataFetcher type="balance" onData={(data) => setBalance(data as string)} /> 
+        <DataFetcher type="balance" onData={(data) => setBalance(data as number)} /> 
         <DataFetcher type="holders" onData={(data) => setHolders(data as number)} />
         <ScrollShadow hideScrollBar>
         <section className="flex flex-col md:flex-row gap-4">

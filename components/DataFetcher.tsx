@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 interface DataFetcherProps {
   type: 'balance' | 'holders';
-  onData: (data: string | number | null) => void;
+  onData: (data: number | string | undefined) => void;
 }
 
 const DataFetcher: React.FC<DataFetcherProps> = ({ type, onData }) => {
@@ -37,7 +37,7 @@ const DataFetcher: React.FC<DataFetcherProps> = ({ type, onData }) => {
             onData(calculatedBalance);
           } else {
             console.error("Balance data not found");
-            onData(null);
+            onData(undefined);
           }
         } else if (type === 'holders') {
           const data = await fetchDataWithRetry(urlHolders);
@@ -45,18 +45,18 @@ const DataFetcher: React.FC<DataFetcherProps> = ({ type, onData }) => {
             onData(data.holders_count);
           } else {
             console.error("Holders data not found");
-            onData(null);
+            onData(undefined);
           }
         }
       } catch (error) {
         console.error('Error al obtener datos:', error);
-        onData(null);
+        onData(undefined);
       }
     };
     fetchData();
   }, [type, onData]);
 
-  return null;
+  return undefined;
 };
 
 export default DataFetcher;
